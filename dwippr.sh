@@ -1,11 +1,6 @@
 #!/bin/bash
 
-# Edit path to conf file
-
 . /path/to/DWippr/dw.conf
-
-#
-
 
 #////////////// VARIABLES //////////////#
 USRSRC=""
@@ -36,15 +31,15 @@ fieldup() {
     printf "\nUpdating log fields...\n"
 
     case "$DSKPATH" in
-        *sd*) 
+        *sd*)
             DMODEL=$(smartctl -a "$DSKPATH" | grep 'Device Model')
             WIPTYPE="ATA"
             ;;
-        *nvm*) 
+        *nvm*)
             DMODEL=$(smartctl -a "$DSKPATH" | grep 'Model')
             WIPTYPE="NVMe"
             ;;
-        *) 
+        *)
             echo "Error: $DSKPATH not a valid device"
             exit 1
             ;;
@@ -62,7 +57,7 @@ wippit() {
     case "$WIPTYPE" in
         NVMe)
             DMETHOD+=" NVMe CLI - "
-            NVME_INFO=$(nvme id-ctrl -H "$diskpath")
+            NVME_INFO=$(nvme id-ctrl -H "$DSKPATH")
 #------------
 #	filter out "No-Deallocate"
 #	check grep logic
@@ -181,3 +176,4 @@ case "$READREP" in
 	*)
 		echo -e "\nDONE"
 esac
+[rawrchitect@
