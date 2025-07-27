@@ -7,7 +7,7 @@ A utility for securely wiping drives and generating a NIST-800-88 compliant veri
 Clone the repository using this command:
 `git clone https://github.com/jroderiko/DWippr`
 
-Use the `dwnsetup.sh` script to configure DWippr. This will create the log directory and config file. During the setup you can choose disks to exclude when running DWippr. This can also be done by adding them manually to `dw.conf` under `NONO_DISKS`.
+Use the `dwnstall.sh` script to configure DWippr. This will create the log directory and config file. During the setup you can choose disks to exclude when running DWippr. This can also be done by adding them manually to `dw.conf` under `NONO_DISKS`.
 
 # Usage
 
