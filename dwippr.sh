@@ -58,10 +58,6 @@ wippit() {
         NVMe)
             DMETHOD+=" NVMe CLI - "
             NVME_INFO=$(nvme id-ctrl -H "$DSKPATH")
-#------------
-#	filter out "No-Deallocate"
-#	check grep logic
-#------------
             if echo "$NVME_INFO" | grep -q "Sanitize" && ! echo "$NVME_INFO" | grep -q "Not Supported" ; then
                 DMETHOD+="Sanitize"
                 echo "Wiping $DSKPATH with $DMETHOD..."
